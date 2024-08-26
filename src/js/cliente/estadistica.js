@@ -21,7 +21,7 @@ const chartCliente = new Chart(ctx, {
 });
 
 const getEstadisticas = async () => {
-    const url = `/grafica/API/detalle/estadistica`
+    const url = `/tarea_chart/API/detalle/estadistica`
     const config = { method: "GET" }
     const response = await fetch(url, config);
     const data = await response.json()

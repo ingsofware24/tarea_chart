@@ -24,7 +24,7 @@
                 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin: 0;">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/grafica"><i class="bi bi-house-fill me-2"></i>INICIO</a>
+                        <a class="nav-link" aria-current="page" href="/tarea_chart"><i class="bi bi-house-fill me-2"></i>INICIO</a>
                     </li>
   
                     <div class="nav-item dropdown " >
@@ -34,7 +34,7 @@
                         <ul class="dropdown-menu  dropdown-menu-dark "id="dropwdownRevision" style="margin: 0;">
                             <!-- <h6 class="dropdown-header">Información</h6> -->
                             <li>
-                                <a class="dropdown-item nav-link text-white " href="/grafica/cliente/estadisticas"><i class="ms-lg-0 ms-2 bi bi-plus-circle me-2"></i>Clientes</a>
+                                <a class="dropdown-item nav-link text-white " href="/tarea_chart/cliente/estadisticas"><i class="ms-lg-0 ms-2 bi bi-plus-circle me-2"></i>Clientes</a>
                             </li>
                         
                     
