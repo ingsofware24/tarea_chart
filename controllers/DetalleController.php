@@ -3,26 +3,32 @@
 namespace Controllers;
 
 use Exception;
-use Model\Producto; 
+use Model\Cliente; 
 use MVC\Router; 
 
 class DetalleController {
 
     public static function estadisticas(Router $router){
-        $router->render('productos/estadisticas');
+        $router->render('cliente/estadisticas');
     }
 
-
-    public static function detalleVentasAPI(){
+    public static function detalleVentasAPI()
+    {
         try {
+            $sql = "SELECT 
+                    c.cliente_id, 
+                    c.cliente_nombre,
+                    COUNT(v.venta_id) AS total_ventas
+                FROM 
+                    cliente c
+                JOIN 
+                    ventas v ON c.cliente_id = v.venta_cliente
+                GROUP BY 
+                    c.cliente_id, c.cliente_nombre
+                ORDER BY 
+                    total_ventas DESC;";
 
-            $sql = 'SELECT producto_nombre AS producto, sum(detalle_cantidad) as cantidad 
-            from detalle_ventas 
-            inner join productos on detalle_producto = producto_id where detalle_situacion = 1
-            group by producto_nombre';
-
-            $datos = Producto::fetchArray($sql);
-            
+            $datos = Cliente::fetchArray($sql);
             echo json_encode($datos);
         } catch (Exception $e) {
             echo json_encode([
@@ -32,7 +38,4 @@ class DetalleController {
             ]);
         }
     }
-
-
-
 }

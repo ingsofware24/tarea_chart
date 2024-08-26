@@ -1,7 +1,7 @@
 <h1 class="class text-center">ESTADÍSTICAS CON CHART.JS</h1>
 
 
-<h3 class="class text-center">Gráfica de ventas</h3>
+<h3 class="class text-center">Ventas realizadas por los clientes</h3>
 
 <div class="row justify-content-center">
     <div class="col-lg-6">
@@ -17,5 +17,5 @@
 
 
 
-<script src="<?= asset('./build/js/productos/estadistica.js') ?>"></script>
+<script src="<?= asset('./build/js/cliente/estadistica.js') ?>"></script>
 

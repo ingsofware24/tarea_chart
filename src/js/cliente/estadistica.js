@@ -1,5 +1,5 @@
 import { Dropdown } from "bootstrap";
-import Chart from "tarea_chart/auto";
+import Chart from "chart.js/auto";
 
 const canvas = document.getElementById('chartVentas');
 const ctx = canvas.getContext('2d');
@@ -15,31 +15,31 @@ const data = {
     }]
 };
 
-const chartProductos = new Chart(ctx, {
+const chartCliente = new Chart(ctx, {
     type: 'bar',
     data: data,
 });
 
 const getEstadisticas = async () => {
-    const url = `/tarea_chart/API/detalle/estadistica`
+    const url = `/grafica/API/detalle/estadistica`
     const config = { method: "GET" }
     const response = await fetch(url, config);
     const data = await response.json()
 
     if(data){
-        if(chartProductos.data.datasets[0]) {
-            chartProductos.data.labels = [];
-            chartProductos.data.datasets[0].data = [];
-            chartProductos.data.datasets[0].backgroundColor = [];
+        if(chartCliente.data.datasets[0]) {
+            chartCliente.data.labels = [];
+            chartCliente.data.datasets[0].data = [];
+            chartCliente.data.datasets[0].backgroundColor = [];
             data.forEach(r => {
-                chartProductos.data.labels.push(r.producto);
-                chartProductos.data.datasets[0].data.push(r.cantidad);
-                chartProductos.data.datasets[0].backgroundColor.push(generateRandomColor());
+                chartCliente.data.labels.push(r.cliente_nombre);
+                chartCliente.data.datasets[0].data.push(r.total_ventas);
+                chartCliente.data.datasets[0].backgroundColor.push(generateRandomColor());
             });
         }
     }
 
-    chartProductos.update();
+    chartCliente.update();
 }
 
 const generateRandomColor = () => {
